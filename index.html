@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>UNOOOOOOO</title>
+        <link href="style.css" type="text/css" rel="stylesheet"/>
+        <script src="jQuery.js"></script>
+        <script src="uno.js"></script>
+        </head>
+    <body onload="load()">
+        <h1 id="title"></h1>
+        <div class="points left grayborder">
+            <div id="header" class="fleex">
+
+            </div>
+            <div id="pointDiv" class="fleex grayborder">
+                
+            </div>
+        </div>
+        <div class="right">
+            <div id="addPointDiv" class=" grayborder SPACE">
+                <div class="subTitle" onclick="showHide(this)">
+                    <span>Add Points</span>
+                    <hr/>
+                </div>
+                <div class="row subContent" id="addPoints">
+                </div>
+            </div>
+            <div id="setupDiv" class=" grayborder SPACE">
+                <div class="subTitle" onclick="showHide(this)">
+                    <span>Setup</span>
+                    <hr/>
+                </div>
+                <div class="subContent">
+                    <input type="button" value="Setup" class="addButton SPACE" onclick="game.start()">
+                </div>
+            </div>
+            <br>
+            <div id="addPlayerDiv" class="grayborder SPACE">
+                <div class="subTitle" onclick="showHide(this)">
+                    <span>Add Players</span>
+                    <hr/>
+                    <div id="playerList"></div>
+                </div>
+                <div class="subContent">
+                    <div class="col grayborder SPACE">
+                        <label for="addplayerinput">Name: </label><input name="addplayerinput" id="addplayerinput" type="text" onkeypress="addPlayer(event)">
+                    </div>
+                    <input type="button" value="Add" class="addButton SPACE" onclick="addPlayer()">
+                </div>
+            </div>
+            <br>
+            
+        </div>
+        <input type="button" id="darkmode_button" value="Toggle darkmode" onclick="toggleDarkmode()">
+    </body>
+</html>

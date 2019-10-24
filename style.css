@@ -1,0 +1,173 @@
+.blue {
+    background-color: #2979FF;
+    border-radius: 5px;
+}
+
+.green {
+    background-color: #388E3C;
+    border-radius: 5px;
+}
+
+.gray {
+    background-color: #424242;
+    border-radius: 5px;
+}
+
+.lightgray {
+    background-color: #848484;
+    border-radius: 5px;
+}
+
+.red {
+    background-color: #db1616;
+    border-radius: 5px;
+}
+
+#darkmode {
+    background-color: black;
+    color: white;
+}
+
+.col {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.container {
+    width: 500px;
+}
+
+.grayborder {
+    border: 1px #424242 solid;
+    border-radius: 5px;
+}
+
+.redborder {
+    border: 1px #db1616 solid;
+    border-radius: 5px;
+}
+
+.yellowborder {
+    border: 1px #d8db16 solid;
+    border-radius: 5px;
+}
+
+body {
+    font-family: Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.right {
+    margin-right: 3%;
+    width: 20%;
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.SPACE {
+    padding: 5px;
+}
+
+input[type="button"] {
+    background-color: #2979FF;
+    border: none;
+    border-radius: 5px;
+}
+
+.addButton {
+    margin-top: 10px;
+    width: 80%;
+    text-align: center;
+}
+
+#addPoints {
+    text-align: center;
+}
+
+.points {
+    width: 70%;
+}
+
+.subTitle > span {
+    font-size: 28px;
+    font-weight: bolder;
+}
+
+.fleex {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    justify-content: space-between
+}
+
+.fleex > * {
+    display: flex;
+    flex: 1;
+}
+
+.flex_item {
+    flex-direction: column;
+    text-align: center;
+}
+
+#pointDiv > :nth-child(n),
+#header > :nth-child(n) {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.subContent {
+    text-align: center;
+}
+
+#setupDiv {
+    margin-top: 5px;
+}
+
+#pointDiv {
+    height: 500px;
+    overflow-y: hidden;
+}
+
+#playerList {
+    margin-bottom: 5px;
+}
+
+#darkmode_button {
+    border: none;
+    bottom: 0%;
+    right: 0%;
+    position: absolute;
+}
+
+.sum_display {
+    text-align: center;
+    width: 100%;
+}
+
+.diff_display {
+    float: left;
+    top: 0%;
+    padding:2px;
+    font-size: 14px;
+}
+
+.point_display {
+    float: right;
+    top: 0%;
+    padding: 2px;
+    font-size: 14px;
+}
+
+.numbers {
+    text-align: center;
+    height: 15px;
+    width: 33%;
+}
+
+
+
+
+
