@@ -128,7 +128,7 @@ input[type="button"] {
 
 #pointDiv {
     height: 500px;
-    overflow-y: hidden;
+    overflow-y: scroll;
 }
 
 #playerList {
