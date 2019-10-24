@@ -117,9 +117,9 @@ class Player {
 }
 
 function pointInputKeyDown(input, ev) {
-    ev.preventDefault();
     switch (ev.key) {
         case "Enter":
+            ev.preventDefault();
             if (input.parentElement.nextSibling != undefined) {
                 if (input.parentElement.nextSibling.value == "Add") {
                     input.parentElement.parentElement.children[0].children[1].select();
@@ -132,6 +132,7 @@ function pointInputKeyDown(input, ev) {
             }
             break;
         case "+":
+            ev.preventDefault();
             if (input.parentElement.nextElementSibling != undefined && input.parentElement.nextElementSibling.value != "Add") {
                 input.parentElement.nextElementSibling.children[1].select();
                 input.parentElement.nextElementSibling.children[1].focus();
@@ -141,6 +142,7 @@ function pointInputKeyDown(input, ev) {
             }
             break;
         case "-":
+            ev.preventDefault();
             if (input.parentElement.previousElementSibling != undefined) {
                 input.parentElement.previousElementSibling.children[1].select();
                 input.parentElement.previousElementSibling.children[1].focus();
