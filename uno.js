@@ -155,6 +155,17 @@ function pointInputKeyDown(input, ev) {
     }
 }
 
+function documentOnKeyDown(input, ev) {
+    switch (ev.key) {
+        case "*":
+            ev.preventDefault();
+            var firstInput = document.getElementsByClassName("point_input")[0];
+            firstInput.select();
+            firstInput.focus();
+            break;
+    }
+}
+
 function addPlayer(event) {
     if (event) {
         if (event.keyCode !== 13) return;
@@ -232,8 +243,14 @@ function addPoints() {
         game.player(i).updateText();
         div2.value = "";
     }
+    scrollPointDownToBottom();
     sort();
     //document.cookie = "game=" + JSON.stringify(game.asJson) + "; expires=" + new Date(7258122061000).toString();
+}
+
+function scrollPointDownToBottom() {
+    var pointDiv = document.getElementById("pointDiv");
+    pointDiv.scrollTop = pointDiv.scrollHeight;
 }
 
 function sort() {

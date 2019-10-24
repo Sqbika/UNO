@@ -22,5 +22,5 @@ You can navigate between players with `-` and `+`. If you press `Enter`, it'll j
 
 * [x] Moving across point inputs with `-+`
 * [ ] Who started in the round and who will start
-* [ ] Scroll to bottom when new points added in the point_div
+* [x] Scroll to bottom when new points added in the point_div
 * [ ] `End game` button (No, not thanos snap button, that would be bad)
