@@ -20,7 +20,19 @@ You can navigate between players with `-` and `+`. If you press `Enter`, it'll j
 
 # TODO:
 
-* [x] Moving across point inputs with `-+`
+## Important ones:
+* [ ] Save / Load feature
+
 * [ ] Who started in the round and who will start
-* [x] Scroll to bottom when new points added in the point_div
 * [ ] `End game` button (No, not thanos snap button, that would be bad)
+* [ ] Player Dropout function
+
+* [x] Moving across point inputs with `-+`
+* [x] Scroll to bottom when new points added in the point_div
+
+# Implemented Features: 
+
+* Point tracking system for each player
+* Auto sorted player columns based on current points
+* Numpad based navigation and point adding system
+* Semi-dynamic point tracking system
