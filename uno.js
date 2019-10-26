@@ -19,11 +19,6 @@ String.prototype.formatUnicorn = String.prototype.formatUnicorn ||
     };
 //endregion
 
-//TODO: Endgame
-//TODO: +- play point movement
-//TODO: Emelés + kezdés
-//TODO: Pont div görgetés
-
 var game;
 
 class Game {

@@ -58,6 +58,7 @@ body {
 
 .right {
     margin-right: 3%;
+    top: 5%;
     width: 20%;
     float: right;
 }
@@ -88,6 +89,7 @@ input[type="button"] {
 
 .points {
     width: 70%;
+    top: 5%;
 }
 
 .subTitle > span {
@@ -127,7 +129,7 @@ input[type="button"] {
 }
 
 #pointDiv {
-    height: 500px;
+    height: 75vh;
     overflow-y: scroll;
 }
 
@@ -177,6 +179,19 @@ input:focus {
     background-color: lightcoral;
 }
 
+#topbar {
+    height: 5%;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    display: inline-block;
+    background-color: gray;
+}
+
+#title {
+    margin-top: 2%;
+}
 
 
 
