@@ -180,6 +180,7 @@ function load() {
     } else {
         game = new Game();
     }
+    
 }
 
 function toggleDarkmode() {
@@ -198,26 +199,6 @@ function getById(id) {
 function today() {
     var a = new Date();
     return `${a.getFullYear()}_${a.getUTCMonth()+1}_${a.getDate()}_UNO`;
-}
-
-function showHide(elem) {
-    var subContent = elem.parentElement.children[1];
-    if (subContent.classList.contains("hideelement")) {
-        subContent.classList.remove("hideelement");
-        subContent.classList.add("showelement");
-        $(subContent).animate({
-            height: 'show',
-            opacity: 1
-        }, 500);
-    } else {
-        subContent.classList.add("hideelement");
-        subContent.classList.remove("showelement");
-        subContent.addEventListener("animationend", () => { hideElement(subContent) }, false); 
-        $(subContent).animate({
-            height: 'hide',
-            opacity: 0
-        }, 500);
-    }
 }
 
 window.onbeforeunload = function(){
