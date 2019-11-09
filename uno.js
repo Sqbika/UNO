@@ -107,7 +107,7 @@ class Player {
     }
 
     updatePointDiv(point) {
-        this.pointsDiv.insertAdjacentHTML("beforeEnd", Constants.pointDivString.formatUnicorn({point: point, sum: this.sumPoints, diff: point - this.lastPoint}))
+        this.pointsDiv.insertAdjacentHTML("beforeEnd", Constants.pointDivString.formatUnicorn({point: point, sum: this.sumPoints, diff: point - this.lastPoint, color: point == 0? "nullpoint" : "" }))
     }
 }
 
@@ -230,7 +230,7 @@ function scrollPointDownToBottom() {
 }
 
 function sort() {
-    var order = game.players.sort((a,b) => a.points.reduce((a,b) => a+b, 0) - b.points.reduce((a,b) => a+b, 0)).map((e) => e.id);
+    var order = game.players.sort((a,b) => a.sumPoints - b.sumPoints).map((e) => e.id);
     for (var i = 0; i < order.length; i++) {
         getById('player' + order[i] + "_point_div").style.order = i+1;
         getById('player' + order[i]).style.order = i + 1;
@@ -253,6 +253,6 @@ let Constants = {
     headerString: '<div class="flex_item green" id="player{playerId}"><div class="SPACE"><div>{playerName}</div></div><div class="blue SPACE"><div id="player{playerId}_point">0</div></div></div>',
     addPointsString: '<div class="col grayborder SPACE"><label for="player{playerId}">{playerName}:</label><input name="player{playerId}" id="{playerId}" type="number" class="point_input" onkeypress="pointInputKeyDown(this, event)"></div>',
     pointsString: '<div id="player{playerId}_point_div" class="flex_item SPACE"></div>',
-     pointDivString: '<div class="sum_display grayborder ${point == 0? "red" : "green"}"><div class="diff_display numbers redborder">{diff}</div>{sum}<div class="point_display numbers yellowborder">{point}</div></div>'
+     pointDivString: '<div class="sum_display grayborder {color}"><div class="diff_display numbers redborder">{diff}</div>{sum}<div class="point_display numbers yellowborder">{point}</div></div>'
 }
 

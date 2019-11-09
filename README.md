@@ -26,12 +26,12 @@ You can navigate between players with `-` and `+`. If you press `Enter`, it'll j
 
 # Minor TODO:
 
-* [ ] Indicator for round winner
 * [ ] Round starter indicator
 * [ ] Player Dropout function
 
 # Implemented Features: 
 
+* Indicator for round winner
 * Scroll to bottom when new points added in the point_div
 * Moving across point inputs with `-+`
 * Point tracking system for each player
