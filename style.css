@@ -52,6 +52,15 @@
     border-radius: 5px;
 }
 
+.greenborder {
+    border: 1px #16db16 solid;
+    border-radius: 5px;
+}
+
+body#darkmode .black_outline {
+    text-shadow: 0px 0px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
+}
+
 body {
     font-family: Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
@@ -129,15 +138,21 @@ input[type="button"] {
 }
 
 #pointDiv {
-    height: 75vh;
+    height: 80vh;
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#pointDiv::-webkit-scrollbar {
+    display: none;
 }
 
 #playerList {
     margin-bottom: 5px;
 }
 
-#darkmode_button {
+#bottom_bar {
     border: none;
     bottom: 0%;
     right: 0%;
@@ -189,6 +204,10 @@ input:focus {
     background-color: gray;
 }
 
+input:not([type="button"]) {
+    width: 100%;
+}
+
 #title {
     margin-top: 2%;
 }
@@ -197,5 +216,7 @@ input:focus {
     text-shadow: 0px 0px 0 #db1616, -1px -1px 0 #db1616, 1px -1px 0 #db1616, -1px 1px 0 #db1616, 1px 1px 0 #db1616;
 }
 
-
-
+.ppoint,
+.pname {
+    font-size: 24px;
+}

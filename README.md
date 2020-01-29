@@ -23,10 +23,10 @@ You can navigate between players with `-` and `+`. If you press `Enter`, it'll j
 * [ ] Save / Load feature
 * [ ] `End game` button (No, not thanos snap button, that would be bad)
 * [ ] Point correction
+* [ ] Custom round order
 
 # Minor TODO:
 
-* [ ] Round starter indicator
 * [ ] Player Dropout function
 
 # Implemented Features: 
@@ -38,3 +38,5 @@ You can navigate between players with `-` and `+`. If you press `Enter`, it'll j
 * Auto sorted player columns based on current points
 * Numpad based navigation and point adding system
 * Semi-dynamic point tracking system
+* Round starter indicator
+  * Now it shows who will begin the said round with green background on the points below name.

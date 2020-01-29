@@ -7,7 +7,6 @@
         <script src="uno.js"></script>
         </head>
     <body onload="load()">
-        <h1 id="title" contenteditable="true"></h1>
         <div class="points left grayborder">
             <div id="header" class="fleex">
 
@@ -17,7 +16,8 @@
             </div>
         </div>
         <div class="right">
-            <div id="addPointDiv" class=" grayborder SPACE">
+            <h1 id="title" contenteditable="true"></h1>
+            <div id="addPointDiv" class="grayborder SPACE" style="display: none">
                 <div class="subTitle">
                     <span>Add Points</span>
                     <hr/>
@@ -51,6 +51,10 @@
             <br>
             
         </div>
-        <input type="button" id="darkmode_button" value="Toggle darkmode" onclick="toggleDarkmode()">
+        <div id="bottom_bar">
+            <input type="button" value="Toggle darkmode" onclick="toggleDarkmode()">
+            <input type="button" value="Save" onclick="saveGame()">
+            <input type="button" value="Load" onclick="loadGame()">
+        </div>
     </body>
 </html>

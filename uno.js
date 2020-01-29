@@ -24,6 +24,7 @@ var game;
 class Game {
     players = [];
     name = today();
+    turn = 0;
 
     constructor() {
         Util.setTitle(this.name);
@@ -53,6 +54,17 @@ class Game {
         this.players.push(player);
     }
 
+    addPoints(pointsArray) {
+
+    }
+
+    nextTurn() {
+        this.player(this.turn).setIsStartingRound(false);
+        this.turn++;
+        this.turn %= this.players.length;
+        this.player(this.turn).setIsStartingRound(true);
+    }
+
     start() {
         for (var i = 0; i < this.players.length; i++) {
             Util.setupPlayer(this.player(i));
@@ -60,6 +72,8 @@ class Game {
         getById('addPoints').insertAdjacentHTML("beforeEnd", `<input type="button" value="Add" class="addButton SPACE" onclick="addPoints()">`);
         getById('setupDiv').style.display = "none";
         getById('addPlayerDiv').style.display = "none";
+        getById('addPointDiv').style.display = "block";
+        this.player(0).setIsStartingRound(true);
     }
 }
 
@@ -96,6 +110,12 @@ class Player {
 
     get lastPoint() {
         return this.points[this.points.length-2];
+    }
+
+    setIsStartingRound(starting) {
+        this.sumDiv.classList.remove("green");
+        if (starting)
+            this.sumDiv.classList.add("green");
     }
 
     addPoint(point) {
@@ -221,6 +241,7 @@ function addPoints() {
     }
     scrollPointDownToBottom();
     sort();
+    game.nextTurn();
     //document.cookie = "game=" + JSON.stringify(game.asJson) + "; expires=" + new Date(7258122061000).toString();
 }
 
@@ -250,7 +271,7 @@ let Util = {
 };
 
 let Constants = {
-    headerString: '<div class="flex_item green" id="player{playerId}"><div class="SPACE"><div>{playerName}</div></div><div class="blue SPACE"><div id="player{playerId}_point">0</div></div></div>',
+    headerString: '<div class="flex_item grayborder blue" id="player{playerId}"><div class="SPACE"><div class="pname black_outline">{playerName}</div></div><div class="grayborder SPACE"><div id="player{playerId}_point" class="ppoint black_outline">0</div></div></div>',
     addPointsString: '<div class="col grayborder SPACE"><label for="player{playerId}">{playerName}:</label><input name="player{playerId}" id="{playerId}" type="number" class="point_input" onkeypress="pointInputKeyDown(this, event)"></div>',
     pointsString: '<div id="player{playerId}_point_div" class="flex_item SPACE"></div>',
      pointDivString: '<div class="sum_display grayborder {color}"><div class="diff_display numbers redborder">{diff}</div>{sum}<div class="point_display numbers yellowborder">{point}</div></div>'
