@@ -61,10 +61,6 @@ body#darkmode .black_outline {
     text-shadow: 0px 0px 0 #000000, -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
 }
 
-body {
-    font-family: Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-}
-
 .right {
     margin-right: 3%;
     top: 5%;

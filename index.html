@@ -1,60 +1,70 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>UNOOOOOOO</title>
-        <link href="style.css" type="text/css" rel="stylesheet"/>
-        <!--<script src="jQuery.js"></script>-->
-        <script src="uno.js"></script>
-        </head>
-    <body onload="load()">
-        <div class="points left grayborder">
-            <div id="header" class="fleex">
-
-            </div>
-            <div id="pointDiv" class="fleex grayborder">
-                
-            </div>
+  <head>
+    <title>UNOOOOOOO</title>
+    <link href="newstyle.css" type="text/css" rel="stylesheet" />
+    <link href="style.css" type="text/css" rel="stylesheet" />
+    <script src="uno.js"></script>
+  </head>
+  <body onload="load(); game.start()">
+    <div class="points left">
+      <div id="header" class="flex"></div>
+      <div id="pointDiv" class="flex grayborder"></div>
+    </div>
+    <div class="right">
+      <h1 id="title" contenteditable="true"></h1>
+      <div id="addPointDiv" class="grayborder SPACE" style="display: none">
+        <div class="subTitle">
+          <span>Add Points</span>
+          <hr />
         </div>
-        <div class="right">
-            <h1 id="title" contenteditable="true"></h1>
-            <div id="addPointDiv" class="grayborder SPACE" style="display: none">
-                <div class="subTitle">
-                    <span>Add Points</span>
-                    <hr/>
-                </div>
-                <div class="row subContent" id="addPoints">
-                </div>
-            </div>
-            <div id="setupDiv" class=" grayborder SPACE">
-                <div class="subTitle">
-                    <span>Setup</span>
-                    <hr/>
-                </div>
-                <div class="subContent">
-                    <input type="button" value="Setup" class="addButton SPACE" onclick="game.start()">
-                </div>
-            </div>
-            <br>
-            <div id="addPlayerDiv" class="grayborder SPACE">
-                <div class="subTitle">
-                    <span>Add Players</span>
-                    <hr/>
-                    <div id="playerList"></div>
-                </div>
-                <div class="subContent">
-                    <div class="col grayborder SPACE">
-                        <label for="addplayerinput">Name: </label><input name="addplayerinput" id="addplayerinput" type="text" onkeypress="addPlayer(event)">
-                    </div>
-                    <input type="button" value="Add" class="addButton SPACE" onclick="addPlayer()">
-                </div>
-            </div>
-            <br>
-            
+        <div class="row subContent" id="addPoints"></div>
+      </div>
+      <div id="setupDiv" class=" grayborder SPACE">
+        <div class="subTitle">
+          <span>Setup</span>
+          <hr />
         </div>
-        <div id="bottom_bar">
-            <input type="button" value="Toggle darkmode" onclick="toggleDarkmode()">
-            <input type="button" value="Save" onclick="saveGame()">
-            <input type="button" value="Load" onclick="loadGame()">
+        <div class="subContent">
+          <input
+            type="button"
+            value="Setup"
+            class="addButton SPACE"
+            onclick="game.start()"
+          />
         </div>
-    </body>
+      </div>
+      <br />
+      <div id="addPlayerDiv" class="grayborder SPACE">
+        <div class="subTitle">
+          <span>Add Players</span>
+          <hr />
+          <div id="playerList"></div>
+        </div>
+        <div class="subContent">
+          <div class="col grayborder SPACE">
+            <label for="addplayerinput">Name: </label
+            ><input
+              name="addplayerinput"
+              id="addplayerinput"
+              type="text"
+              onkeypress="addPlayer(event)"
+            />
+          </div>
+          <input
+            type="button"
+            value="Add"
+            class="addButton SPACE"
+            onclick="addPlayer()"
+          />
+        </div>
+      </div>
+      <br />
+    </div>
+    <div id="bottom_bar">
+      <input type="button" value="Toggle darkmode" onclick="toggleDarkmode()" />
+      <input type="button" value="Save" onclick="saveGame()" />
+      <input type="button" value="Load" onclick="loadGame()" />
+    </div>
+  </body>
 </html>
