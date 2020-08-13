@@ -312,7 +312,7 @@ let Util = {
 let Constants = {
   headerString: `
 <div class="playerPointHeader" id="player{playerId}">
-    <div class="SPACE">
+    <div class="playerName">
       <div class="pname black_outline">{playerName}</div>
     </div>
     <div class="grayborder SPACE">

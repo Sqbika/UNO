@@ -1,0 +1,49 @@
+:root {
+  --main-light: #666ad1;
+  --main-dark: #001970;
+  --primary: #303f9f;
+  --indicator-player-turn: #ffeb3b;
+  --indicator-no-turn: #212121;
+  --indicator-last-turn: #bf360c;
+}
+
+body {
+  padding: 5px;
+  font-family: Roboto;
+}
+
+.flex {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    justify-content: space-between
+}
+
+.flex > * {
+    display: flex;
+    flex: 1;
+}
+
+.playerPointHeader {
+    flex-direction: column;
+    text-align: center;
+    background-color: var(--main-light);
+
+    &::before {
+      width: 0;
+      height: 0;
+      content: ' ';
+      top: 14px;
+      left: 15px;
+      border-color: transparent;
+      border-style: solid;
+      border-width: 1em;
+      border-left-color: var(--indicator-no-turn);
+      border-top-color: var(--indicator-no-turn);
+    }
+
+    &.playerTurn::before {
+      border-left-color: var(--indicator-player-turn);
+      border-top-color: var(--indicator-player-turn);
+    }
+}

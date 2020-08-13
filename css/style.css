@@ -1,3 +1,13 @@
+/* roboto-regular - latin */
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./vendor/Roboto-Regular.ttf');
+  src: local('Roboto'), local('Roboto-Regular'),
+}
+
+
 .blue {
     background-color: #2979FF;
     border-radius: 5px;
