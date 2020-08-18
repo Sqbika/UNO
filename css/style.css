@@ -4,7 +4,7 @@
   font-style: normal;
   font-weight: 400;
   src: url('./vendor/Roboto-Regular.ttf');
-  src: local('Roboto'), local('Roboto-Regular'),
+  src: local('Roboto'),
 }
 
 
@@ -220,9 +220,4 @@ input:not([type="button"]) {
 
 .nullpoint {
     text-shadow: 0px 0px 0 #db1616, -1px -1px 0 #db1616, 1px -1px 0 #db1616, -1px 1px 0 #db1616, 1px 1px 0 #db1616;
-}
-
-.ppoint,
-.pname {
-    font-size: 24px;
 }

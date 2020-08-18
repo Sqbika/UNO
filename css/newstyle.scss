@@ -1,10 +1,11 @@
 :root {
   --main-light: #666ad1;
   --main-dark: #001970;
+  --main-darker: #33379E;
   --primary: #303f9f;
-  --indicator-player-turn: #ffeb3b;
+  --indicator-starting: #00600f;
   --indicator-no-turn: #212121;
-  --indicator-last-turn: #bf360c;
+  --indicator-lifting: #a00037;
 }
 
 body {
@@ -28,13 +29,15 @@ body {
     flex-direction: column;
     text-align: center;
     background-color: var(--main-light);
+    position: relative;
 
     &::before {
       width: 0;
       height: 0;
       content: ' ';
-      top: 14px;
-      left: 15px;
+      top: 0;
+      left: 0;
+      position: absolute;
       border-color: transparent;
       border-style: solid;
       border-width: 1em;
@@ -42,8 +45,41 @@ body {
       border-top-color: var(--indicator-no-turn);
     }
 
-    &.playerTurn::before {
-      border-left-color: var(--indicator-player-turn);
-      border-top-color: var(--indicator-player-turn);
+    &.starting::before {
+      border-left-color: var(--indicator-starting);
+      border-top-color: var(--indicator-starting);
     }
+
+    &.lifting::before {
+      border-left-color: var(--indicator-lifting);
+      border-top-color: var(--indicator-lifting);
+    }
+
+    .playerName {
+      padding: 5px 0;
+      font-size: 24px;
+    }
+
+    .playerPoints {
+      font-size: 40px;
+      background-color: var(--main-darker);
+      color: white;
+    }
+}
+
+#positions > div {
+  background-color: var(--main-darker);
+  color: white;
+  margin: 2px 2px;
+  height: 30px;
+
+  & > p {
+    text-align: center;
+    width: 100%;
+    font-size: 24px;
+    height: 24px;
+    line-height: 20px;
+    top: 0;
+    margin: 4px 0;
+  }
 }

@@ -59,10 +59,10 @@ class Game {
   addPoints(pointsArray) {}
 
   nextTurn() {
-    this.player(this.turn).setIsStartingRound(false);
+    this.player((this.turn -1 + this.players.length) % this.players.length).setHeaderClass("lifting");
     this.turn++;
     this.turn %= this.players.length;
-    this.player(this.turn).setIsStartingRound(true);
+    this.player(this.turn).setHeaderClass("starting");
   }
 
   start() {
@@ -71,6 +71,7 @@ class Game {
     }
     for (var i = 0; i < this.players.length; i++) {
       Util.setupPlayer(this.player(i));
+      Util.addPosDiv(i);
     }
     getById("addPoints").insertAdjacentHTML(
       "beforeEnd",
@@ -79,7 +80,8 @@ class Game {
     getById("setupDiv").style.display = "none";
     getById("addPlayerDiv").style.display = "none";
     getById("addPointDiv").style.display = "block";
-    this.player(0).setIsStartingRound(true);
+    this.player(0).setHeaderClass("starting");
+    this.player(this.players.length -1).setHeaderClass("lifting");
   }
 }
 
@@ -101,6 +103,10 @@ class Player {
     return this.name;
   }
 
+  get header() {
+    return getById("player" + this.id);
+  }
+
   get sumDiv() {
     return getById("player" + this.id + "_point");
   }
@@ -117,9 +123,9 @@ class Player {
     return this.points[this.points.length - 2];
   }
 
-  setIsStartingRound(starting) {
-    this.sumDiv.classList.remove("green");
-    if (starting) this.sumDiv.classList.add("green");
+  setHeaderClass(clazz) {
+    this.header.classList.remove("starting", "lifting");
+    if (clazz) this.header.classList.add(clazz);
   }
 
   addPoint(point) {
@@ -306,6 +312,12 @@ let Util = {
     Util.insertHeader(player);
     Util.addPoints(player);
     Util.pointDiv(player);
+  },
+  addPosDiv: i => {
+    getById('positions').insertAdjacentHTML(
+      "beforeEnd",
+      Constants.positionsString.formatUnicorn({i: i})
+    );
   }
 };
 
@@ -315,7 +327,7 @@ let Constants = {
     <div class="playerName">
       <div class="pname black_outline">{playerName}</div>
     </div>
-    <div class="grayborder SPACE">
+    <div class="playerPoints">
       <div id="player{playerId}_point" class="ppoint black_outline">0</div>
     </div>
 </div>`,
@@ -324,5 +336,6 @@ let Constants = {
   pointsString:
     '<div id="player{playerId}_point_div" class="flex_item SPACE"></div>',
   pointDivString:
-    '<div class="sum_display grayborder {color}"><div class="diff_display numbers redborder">{diff}</div>{sum}<div class="point_display numbers yellowborder">{point}</div></div>'
+    '<div class="sum_display grayborder {color}"><div class="diff_display numbers redborder">{diff}</div>{sum}<div class="point_display numbers yellowborder">{point}</div></div>',
+    positionsString: `<div><p>{i}</p></div>`
 };
