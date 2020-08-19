@@ -6,11 +6,16 @@
   --indicator-starting: #00600f;
   --indicator-no-turn: #212121;
   --indicator-lifting: #a00037;
+  --round-point: #00bcd4;
+  --main-font-color: white;
+  --background-color: #607d8b;
 }
 
 body {
   padding: 5px;
   font-family: Roboto;
+  background-color: var(--background-color);
+  color: var(--main-font-color);
 }
 
 .flex {
@@ -55,11 +60,16 @@ body {
 .playerPointHeader .playerName {
   padding: 5px 0;
   font-size: 24px;
+  color: var(--main-font-color);
 }
 .playerPointHeader .playerPoints {
   font-size: 40px;
   background-color: var(--main-darker);
-  color: white;
+  color: var(--main-font-color);
+}
+
+#pointDiv {
+  margin-top: 5px;
 }
 
 #positions > div {
@@ -76,6 +86,90 @@ body {
   line-height: 20px;
   top: 0;
   margin: 4px 0;
+}
+
+.pointDiv {
+  background-color: var(--main-light);
+  color: white;
+  position: relative;
+  font-size: 32px;
+}
+.pointDiv:nth-child(even) {
+  background-color: var(--primary);
+}
+.pointDiv .summ {
+  width: 100%;
+}
+.pointDiv .roundPoint {
+  top: 0;
+  right: 0;
+  position: absolute;
+  min-width: 40px;
+  max-width: 65px;
+  color: var(--round-point);
+  font-size: 32px;
+}
+
+#setupDiv .subContent {
+  padding-bottom: 5px;
+}
+
+#setupDiv, #addPlayerDiv, #addPointDiv {
+  background-color: var(--main-dark);
+}
+#setupDiv .subTitle, #addPlayerDiv .subTitle, #addPointDiv .subTitle {
+  background-color: var(--main-light);
+  font-size: 32px;
+  padding: 6px;
+}
+#setupDiv .subContent, #addPlayerDiv .subContent, #addPointDiv .subContent {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  color: var(--main-font-color);
+  padding-top: 5px;
+  background-color: var(--main-dark);
+}
+#setupDiv .subContent .playerInputDiv .inputLabel, #addPlayerDiv .subContent .playerInputDiv .inputLabel, #addPointDiv .subContent .playerInputDiv .inputLabel {
+  text-align: left;
+  width: 100%;
+  margin: 0 0 0 14px;
+}
+#setupDiv .subContent .playerInputDiv #addplayerinput, #addPlayerDiv .subContent .playerInputDiv #addplayerinput, #addPointDiv .subContent .playerInputDiv #addplayerinput {
+  width: 90%;
+  border: none;
+  background-color: var(--main-light);
+  color: var(--main-font-color);
+}
+#setupDiv .subContent .playerInputRow, #addPlayerDiv .subContent .playerInputRow, #addPointDiv .subContent .playerInputRow {
+  margin-top: 5px;
+}
+#setupDiv .subContent .playerInputRow .playerName, #addPlayerDiv .subContent .playerInputRow .playerName, #addPointDiv .subContent .playerInputRow .playerName {
+  text-align: left;
+  width: 100%;
+  margin: 0 0 0 14px;
+}
+#setupDiv .subContent .playerInputRow .playerPointInput, #addPlayerDiv .subContent .playerInputRow .playerPointInput, #addPointDiv .subContent .playerInputRow .playerPointInput {
+  width: 90%;
+  border: none;
+  background-color: var(--main-light);
+  color: var(--main-font-color);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+#setupDiv .subContent .playerInputRow .playerPointInput::-webkit-inner-spin-button, #addPlayerDiv .subContent .playerInputRow .playerPointInput::-webkit-inner-spin-button, #addPointDiv .subContent .playerInputRow .playerPointInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#setupDiv .subContent .playerInputRow .playerPointInput:focus, #addPlayerDiv .subContent .playerInputRow .playerPointInput:focus, #addPointDiv .subContent .playerInputRow .playerPointInput:focus {
+  border: 2px solid var(--main-font-color);
+}
+#setupDiv .subContent .addButton, #addPlayerDiv .subContent .addButton, #addPointDiv .subContent .addButton {
+  width: 100%;
+  border: none;
+  margin-bottom: -5px;
+  background-color: var(--main-darker);
+  color: var(--main-font-color);
 }
 
 /*# sourceMappingURL=newstyle.css.map */

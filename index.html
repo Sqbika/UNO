@@ -6,46 +6,41 @@
     <link href="css/style.css" type="text/css" rel="stylesheet" />
     <script src="uno.js"></script>
   </head>
-  <body onload="load(); game.start()">
+  <body onload="load()">
     <div class="points left">
       <div id="positions" class="flex"></div>
       <div id="header" class="flex"></div>
-      <div id="pointDiv" class="flex grayborder"></div>
+      <div id="pointDiv" class="flex"></div>
     </div>
     <div class="right">
       <h1 id="title" contenteditable="true"></h1>
-      <div id="addPointDiv" class="grayborder SPACE" style="display: none">
+      <div id="addPointDiv" style="display: none">
         <div class="subTitle">
           <span>Add Points</span>
-          <hr />
         </div>
-        <div class="row subContent" id="addPoints"></div>
+        <div class="subContent" id="addPoints"></div>
       </div>
-      <div id="setupDiv" class=" grayborder SPACE">
+      <div id="setupDiv">
         <div class="subTitle">
           <span>Setup</span>
-          <hr />
         </div>
-        <div class="subContent">
-          <input
-            type="button"
-            value="Setup"
-            class="addButton SPACE"
-            onclick="game.start()"
-          />
-        </div>
+        <input
+          class="subContent"
+          type="button"
+          value="Setup"
+          onclick="game.start()"
+        />
       </div>
       <br />
-      <div id="addPlayerDiv" class="grayborder SPACE">
+      <div id="addPlayerDiv">
         <div class="subTitle">
           <span>Add Players</span>
-          <hr />
-          <div id="playerList"></div>
         </div>
         <div class="subContent">
-          <div class="col grayborder SPACE">
-            <label for="addplayerinput">Name: </label
-            ><input
+          <div id="playerList"></div>
+          <div class="playerInputDiv">
+            <p class="inputLabel">Name: </p>
+            <input
               name="addplayerinput"
               id="addplayerinput"
               type="text"
@@ -55,7 +50,7 @@
           <input
             type="button"
             value="Add"
-            class="addButton SPACE"
+            class="addButton"
             onclick="addPlayer()"
           />
         </div>

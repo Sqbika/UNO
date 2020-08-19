@@ -59,13 +59,36 @@ class Game {
   addPoints(pointsArray) {}
 
   nextTurn() {
+    this.clearHeaders();
     this.player((this.turn -1 + this.players.length) % this.players.length).setHeaderClass("lifting");
     this.turn++;
     this.turn %= this.players.length;
     this.player(this.turn).setHeaderClass("starting");
   }
 
+  clearHeaders() {
+    for (var i = 0; i < this.players.length; i++) {
+      this.player(i).setHeaderClass();
+    }
+  }
+
   start() {
+    for (var i = 0; i < this.players.length; i++) {
+      Util.setupPlayer(this.player(i));
+      Util.addPosDiv(i);
+    }
+    getById("addPoints").insertAdjacentHTML(
+      "beforeEnd",
+      `<input type="button" value="Add" class="addButton SPACE" onclick="addPoints()">`
+    );
+    getById("setupDiv").style.display = "none";
+    getById("addPlayerDiv").style.display = "none";
+    getById("addPointDiv").style.display = "block";
+    this.player(0).setHeaderClass("starting");
+    this.player(this.players.length -2).setHeaderClass("lifting");
+  }
+
+  demoStart() {
     for (var i = 0; i < 4; i++) {
       game.addPlayer(new Player(game.newId, ["a", "b", "c", "d"][i]));
     }
@@ -81,7 +104,19 @@ class Game {
     getById("addPlayerDiv").style.display = "none";
     getById("addPointDiv").style.display = "block";
     this.player(0).setHeaderClass("starting");
-    this.player(this.players.length -1).setHeaderClass("lifting");
+    this.player(this.players.length -2).setHeaderClass("lifting");
+    var points = [1,2,3,4];
+    for (var repeat = 0; repeat < 10; repeat++) {
+    for (var i = 0; i < points.length; i++) {
+      var point = points[i];
+      this.player(i).addPoint(point);
+      this.player(i).updatePointDiv(point);
+      this.player(i).updateText();
+    }
+    scrollPointDownToBottom();
+    sort();
+    this.nextTurn();
+    }
   }
 }
 
@@ -142,7 +177,6 @@ class Player {
       Constants.pointDivString.formatUnicorn({
         point: point,
         sum: this.sumPoints,
-        diff: point - this.lastPoint,
         color: point == 0 ? "nullpoint" : ""
       })
     );
@@ -220,12 +254,12 @@ function addPlayer(event) {
 }
 
 function load() {
-  if (document.cookie !== "") {
+  /*if (document.cookie !== "") {
     game = JSON.parse(document.cookie.split(";")[0].split("=")[1]);
     game.load();
-  } else {
+  } else {*/
     game = new Game();
-  }
+  //}
 }
 
 function toggleDarkmode() {
@@ -316,7 +350,7 @@ let Util = {
   addPosDiv: i => {
     getById('positions').insertAdjacentHTML(
       "beforeEnd",
-      Constants.positionsString.formatUnicorn({i: i})
+      Constants.positionsString.formatUnicorn({i: i+1})
     );
   }
 };
@@ -325,17 +359,17 @@ let Constants = {
   headerString: `
 <div class="playerPointHeader" id="player{playerId}">
     <div class="playerName">
-      <div class="pname black_outline">{playerName}</div>
+      <span>{playerName}</span>
     </div>
     <div class="playerPoints">
       <div id="player{playerId}_point" class="ppoint black_outline">0</div>
     </div>
 </div>`,
   addPointsString:
-    '<div class="col grayborder SPACE"><label for="player{playerId}">{playerName}:</label><input name="player{playerId}" id="{playerId}" type="number" class="point_input" onkeypress="pointInputKeyDown(this, event)"></div>',
+    '<div class="playerInputRow"><p class="playerName">{playerName}:</p><input name="player{playerId}" id="{playerId}" type="number" class="playerPointInput" onkeypress="pointInputKeyDown(this, event)"></div>',
   pointsString:
-    '<div id="player{playerId}_point_div" class="flex_item SPACE"></div>',
+    '<div id="player{playerId}_point_div" class="flex_item"></div>',
   pointDivString:
-    '<div class="sum_display grayborder {color}"><div class="diff_display numbers redborder">{diff}</div>{sum}<div class="point_display numbers yellowborder">{point}</div></div>',
+    '<div class="pointDiv"><div class="summ">{sum}</div><div class="roundPoint">{point}</div></div>',
     positionsString: `<div><p>{i}</p></div>`
 };
